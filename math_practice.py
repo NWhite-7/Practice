@@ -68,3 +68,39 @@ def easy_median(ls):
 
 print(easy_median(my_data1))
 print(easy_median(my_data2))
+
+#####
+# Calculating mean
+#####
+
+# Function with loop
+
+def calculate_mean(ls):
+    sum = 0
+    for value in ls:
+        sum += value
+    mean = sum / len(ls)
+    return mean
+
+print(calculate_mean(my_data1))
+print(calculate_mean(my_data2))
+
+# Function with different loop
+
+def calculate_mean_2(ls):
+    sum = 0
+    for i in range(len(ls)):
+        sum += ls[i]
+    mean = sum / len(ls)
+    return mean
+
+print(calculate_mean_2(my_data1))
+print(calculate_mean_2(my_data2))
+
+# Function with np.mean
+
+def easy_mean(ls):
+    return np.mean(ls)
+
+print(easy_mean(my_data1))
+print(easy_mean(my_data2))

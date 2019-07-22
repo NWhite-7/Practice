@@ -48,7 +48,7 @@ print(new_array)
 #####
 
 my_data1 = [10, 12, 15, 19, 40]
-my_data2 = [11, 13, 17, 20, 20, 20]
+my_data2 = [20, 13, 17, 20, 11, 20]
 
 # Funtion with Boolean expression
 
@@ -135,3 +135,51 @@ def easy_sort(ls):
     return sorted(ls)
 
 print(easy_sort(unsorted_list2))
+
+#####
+# Calculating minimum value
+#####
+
+# Function with loop
+
+def minimum_value(ls):
+    min = ls[0]
+    for i in range(len(ls)):
+        if ls[i] < min:
+            min = ls[i]
+    return min
+
+print(minimum_value(my_data1))
+print(minimum_value(my_data2))
+
+# Function with min
+
+def easy_minimum(ls):
+    return min(ls)
+
+print(easy_minimum(my_data1))
+print(easy_minimum(my_data2))
+
+#####
+# Calculating maximum value
+#####
+
+# Function with loop
+
+def maximum_value(ls):
+    max = ls[0]
+    for i in range(len(ls)):
+        if ls[i] > max:
+            max = ls[i]
+    return max
+
+print(maximum_value(my_data1))
+print(maximum_value(my_data2))
+
+# Function with max
+
+def easy_maximum(ls):
+    return max(ls)
+
+print(easy_maximum(my_data1))
+print(easy_maximum(my_data2))

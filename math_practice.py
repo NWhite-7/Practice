@@ -106,37 +106,6 @@ print(easy_mean(my_data1))
 print(easy_mean(my_data2))
 
 #####
-# Sorting a list
-#####
-
-unsorted_list1 = [6, 3, 18, 14, 18]
-unsorted_list2 = [13, 2, 5, 2, 10, 9]
-
-# Function to sort manually
-
-def sort_list(ls):
-    sorted_list = []
-    smallest_num = ls[0]
-    while len(ls) > 0:
-        for i in range(len(ls)):
-            if ls[i] <= smallest_num:
-                smallest_num = ls[i]
-        sorted_list.append(smallest_num)
-        ls.remove(smallest_num)
-        if len(ls)>1:
-            smallest_num = ls[0]
-    return sorted_list
-
-print(sort_list(unsorted_list1))
-
-# Function to sort using sort
-
-def easy_sort(ls):
-    return sorted(ls)
-
-print(easy_sort(unsorted_list2))
-
-#####
 # Calculating minimum value
 #####
 
@@ -183,3 +152,34 @@ def easy_maximum(ls):
 
 print(easy_maximum(my_data1))
 print(easy_maximum(my_data2))
+
+#####
+# Sorting a list
+#####
+
+unsorted_list1 = [6, 3, 18, 14, 18]
+unsorted_list2 = [13, 2, 5, 2, 10, 9]
+
+# Function to sort manually
+
+def sort_list(ls):
+    sorted_list = []
+    smallest_num = ls[0]
+    while len(ls) > 0:
+        for i in range(len(ls)):
+            if ls[i] <= smallest_num:
+                smallest_num = ls[i]
+        sorted_list.append(smallest_num)
+        ls.remove(smallest_num)
+        if len(ls)>1:
+            smallest_num = ls[0]
+    return sorted_list
+
+print(sort_list(unsorted_list1))
+
+# Function to sort using sort
+
+def easy_sort(ls):
+    return sorted(ls)
+
+print(easy_sort(unsorted_list2))

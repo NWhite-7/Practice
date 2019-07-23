@@ -2,7 +2,7 @@
 # Introduction
 #####
 
-# This program performs the same simple math in a variety of ways
+# This program performs the same simple math using differently coded functions
 
 #####
 # Imports
@@ -12,8 +12,10 @@ import numpy as np
 import random
 
 #####
-# Define random list
+# Creating random list
 #####
+
+# Function to generate list
 
 def generate_random_list():
     random_list = [random.randint(1, 20) for num in range(random.randint(2, 10))]
@@ -21,49 +23,10 @@ def generate_random_list():
 
 my_list = generate_random_list()
 
-print(my_list)
+# Print results
 
-#####
-# Performing simple math on each value in list
-#####
-
-# Function with simple loop
-
-test = [1, 2, 3]
-
-def add_one1(ls):
-    new_list = []
-    for value in ls:
-        new_list.append(value + 1)
-    return new_list
-
-print(add_one1(my_list))
-
-# Function with more complicated loop
-
-def add_one2(ls):
-    new_list = []
-    for i in range(len(ls)):
-        new_list.append(ls[i] + 1)
-    return new_list
-
-print (add_one2(my_list))
-
-# Function with list comprehension
-
-def add_one3(ls):
-    new_list = [value + 1 for value in ls]
-    return new_list
-
-print(add_one3(my_list))
-
-# Function with array
-
-def add_one4(ls):
-    new_list = list(np.asarray(ls) + 1)
-    return new_list
-
-print(add_one4(my_list))
+print("Your list is: ", my_list)
+print()
 
 #####
 # Calculating median
@@ -78,14 +41,17 @@ def median1(ls):
     else:
         return sorted_list[(len(ls) - 1) // 2]
 
-print(median1(my_list))
-
-# Function with np.median
+# Function with NumPy
 
 def median2(ls):
     return np.median(ls)
 
-print(median2(my_list))
+# Print results
+
+print('Calculating the median')
+print('Manually ', median1(my_list))
+print('NumPy: ', median2(my_list))
+print()
 
 #####
 # Calculating mean
@@ -100,8 +66,6 @@ def mean1(ls):
     mean = sum / len(ls)
     return mean
 
-print(mean1(my_list))
-
 # Function with different loop
 
 def mean2(ls):
@@ -111,14 +75,18 @@ def mean2(ls):
     mean = sum / len(ls)
     return mean
 
-print(mean2(my_list))
-
-# Function with np.mean
+# Function with NumPy
 
 def mean3(ls):
     return np.mean(ls)
 
-print(mean3(my_list))
+# Print results
+
+print('Calculating the mean')
+print('Simple loop: ', mean1(my_list))
+print('Different loop: ', mean2(my_list))
+print('NumPy: ', mean3(my_list))
+print()
 
 #####
 # Calculating minimum value
@@ -133,14 +101,17 @@ def min1(ls):
             min = ls[i]
     return min
 
-print(min1(my_list))
-
 # Function with min
 
 def min2(ls):
     return min(ls)
 
-print(min2(my_list))
+# Print results
+
+print('Calculating the minimum value')
+print('Loop: ', min1(my_list))
+print('Built-in function: ', min2(my_list))
+print()
 
 #####
 # Calculating maximum value
@@ -155,14 +126,17 @@ def max1(ls):
             max = ls[i]
     return max
 
-print(max1(my_list))
-
 # Function with max
 
 def max2(ls):
     return max(ls)
 
-print(max2(my_list))
+# Print results
+
+print('Calculating the maximum value')
+print('Loop: ', max1(my_list))
+print('Built-in function: ', max2(my_list))
+print()
 
 #####
 # Sorting a list
@@ -184,18 +158,25 @@ def sort1(ls):
             smallest_num = temp_list[0]
     return sorted_list
 
-print(sort1(my_list))
-
 # Function to sort using sorted
 
 def sort2(ls):
     return sorted(ls)
 
-print(sort2(my_list))
+# Print results
+
+print('Sorting the list')
+print('Manually: ', sort1(my_list))
+print('Built-in function: ', sort2(my_list))
+print()
 
 #####
 # Calculating percentiles
 #####
+
+# Set desired percentage for calculations
+
+percentage = 25
 
 # Function to calculate manually
 
@@ -213,11 +194,58 @@ def percentile1(ls, value):
         percentile = (float_rank * (sorted_list[int_rank2] - sorted_list[int_rank1])) + sorted_list[int_rank1]
         return percentile
 
-print(percentile1(my_list, 25))
-
-# Function with numpy
+# Function with NumPy
 
 def percentile2(ls, value):
     return np.percentile(ls, value)
 
-print(percentile2(my_list, 25))
+# Print results
+
+print('Calculating percentiles')
+print('Manually ({value}th percentile): '.format(value = percentage), percentile1(my_list, percentage))
+print('NumPy ({value} percentile): '.format(value = percentage), percentile2(my_list, percentage))
+print()
+
+#####
+# Performing simple math on each value in list
+#####
+
+# Function with simple loop
+
+test = [1, 2, 3]
+
+def add_one1(ls):
+    new_list = []
+    for value in ls:
+        new_list.append(value + 1)
+    return new_list
+
+# Function with more complicated loop
+
+def add_one2(ls):
+    new_list = []
+    for i in range(len(ls)):
+        new_list.append(ls[i] + 1)
+    return new_list
+
+# Function with list comprehension
+
+def add_one3(ls):
+    new_list = [value + 1 for value in ls]
+    return new_list
+
+# Function with array
+
+def add_one4(ls):
+    new_list = list(np.asarray(ls) + 1)
+    return new_list
+
+# Print results
+
+print('Adding one to every value in your list')
+print('Original list: ', my_list)
+print('Simple loop: ', add_one1(my_list))
+print('More complicated loop: ', add_one2(my_list))
+print('List comprehension: ', add_one3(my_list))
+print('Array conversion: ', add_one4(my_list))
+print()

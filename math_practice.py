@@ -49,7 +49,7 @@ def median2(ls):
 # Print results
 
 print('Calculating the median')
-print('Manually ', median1(my_list))
+print('Manually: ', median1(my_list))
 print('NumPy: ', median2(my_list))
 print()
 
@@ -203,7 +203,7 @@ def percentile2(ls, value):
 
 print('Calculating percentiles')
 print('Manually ({value}th percentile): '.format(value = percentage), percentile1(my_list, percentage))
-print('NumPy ({value} percentile): '.format(value = percentage), percentile2(my_list, percentage))
+print('NumPy ({value}th percentile): '.format(value = percentage), percentile2(my_list, percentage))
 print()
 
 #####

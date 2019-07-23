@@ -183,3 +183,35 @@ def easy_sort(ls):
     return sorted(ls)
 
 print(easy_sort(unsorted_list2))
+
+#####
+# Calculating percentiles
+#####
+
+my_data3 = [15, 3, 7, 19, 10, 14, 18]
+my_data4 = [15, 3, 7, 19, 10, 14, 18, 12]
+
+# Function without using numpy
+
+def calculate_percentile(ls, value):
+    sorted_list = easy_sort(ls)
+    index = ((value / 100) * (len(ls) - 1))
+    if (index % 1) == 0:
+        percentile = sorted_list[int(index)]
+        return percentile
+    else:
+        split_float = str(index).split('.')
+        int_rank1 = int(split_float[0])
+        int_rank2 = int(split_float[0]) + 1
+        float_rank =  float("0." + split_float[1])
+        percentile = (float_rank * (sorted_list[int_rank2] - sorted_list[int_rank1])) + sorted_list[int_rank1]
+        return percentile
+
+print(calculate_percentile(my_data4, 25))
+
+# Function with numpy
+
+def easy_percentile(ls, value):
+    return np.percentile(ls, value)
+
+print(easy_percentile(my_data4, 25))

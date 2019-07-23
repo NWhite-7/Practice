@@ -24,7 +24,7 @@ my_list = generate_random_list()
 print(my_list)
 
 #####
-# Performing math on each value in list
+# Performing simple math on each value in list
 #####
 
 # Function with simple loop
@@ -49,7 +49,7 @@ def add_one2(ls):
 
 print (add_one2(my_list))
 
-# List comprehension
+# Function with list comprehension
 
 def add_one3(ls):
     new_list = [value + 1 for value in ls]
@@ -57,7 +57,7 @@ def add_one3(ls):
 
 print(add_one3(my_list))
 
-# Array
+# Function with array
 
 def add_one4(ls):
     new_list = list(np.asarray(ls) + 1)
@@ -71,21 +71,21 @@ print(add_one4(my_list))
 
 # Function with Boolean expression
 
-def calculate_median(ls):
+def median1(ls):
     sorted_list = sorted(ls)
     if (len(ls) % 2) == 0:
         return (sorted_list[(len(ls) // 2) - 1] + sorted_list[len(ls) // 2]) / 2
     else:
         return sorted_list[(len(ls) - 1) // 2]
 
-print(calculate_median(my_list))
+print(median1(my_list))
 
 # Function with np.median
 
-def easy_median(ls):
+def median2(ls):
     return np.median(ls)
 
-print(easy_median(my_list))
+print(median2(my_list))
 
 #####
 # Calculating mean
@@ -93,32 +93,32 @@ print(easy_median(my_list))
 
 # Function with loop
 
-def calculate_mean(ls):
+def mean1(ls):
     sum = 0
     for value in ls:
         sum += value
     mean = sum / len(ls)
     return mean
 
-print(calculate_mean(my_list))
+print(mean1(my_list))
 
 # Function with different loop
 
-def calculate_mean_2(ls):
+def mean2(ls):
     sum = 0
     for i in range(len(ls)):
         sum += ls[i]
     mean = sum / len(ls)
     return mean
 
-print(calculate_mean_2(my_list))
+print(mean2(my_list))
 
 # Function with np.mean
 
-def easy_mean(ls):
+def mean3(ls):
     return np.mean(ls)
 
-print(easy_mean(my_list))
+print(mean3(my_list))
 
 #####
 # Calculating minimum value
@@ -126,21 +126,21 @@ print(easy_mean(my_list))
 
 # Function with loop
 
-def minimum_value(ls):
+def min1(ls):
     min = ls[0]
     for i in range(len(ls)):
         if ls[i] < min:
             min = ls[i]
     return min
 
-print(minimum_value(my_list))
+print(min1(my_list))
 
 # Function with min
 
-def easy_minimum(ls):
+def min2(ls):
     return min(ls)
 
-print(easy_minimum(my_list))
+print(min2(my_list))
 
 #####
 # Calculating maximum value
@@ -148,21 +148,21 @@ print(easy_minimum(my_list))
 
 # Function with loop
 
-def maximum_value(ls):
+def max1(ls):
     max = ls[0]
     for i in range(len(ls)):
         if ls[i] > max:
             max = ls[i]
     return max
 
-print(maximum_value(my_list))
+print(max1(my_list))
 
 # Function with max
 
-def easy_maximum(ls):
+def max2(ls):
     return max(ls)
 
-print(easy_maximum(my_list))
+print(max2(my_list))
 
 #####
 # Sorting a list
@@ -170,7 +170,7 @@ print(easy_maximum(my_list))
 
 # Function to sort manually
 
-def sort_list(ls):
+def sort1(ls):
     temp_list = [value for value in ls]
     sorted_list = []
     smallest_num = temp_list[0]
@@ -184,23 +184,23 @@ def sort_list(ls):
             smallest_num = temp_list[0]
     return sorted_list
 
-print(sort_list(my_list))
+print(sort1(my_list))
 
-# Function to sort using sort
+# Function to sort using sorted
 
-def easy_sort(ls):
+def sort2(ls):
     return sorted(ls)
 
-print(easy_sort(my_list))
+print(sort2(my_list))
 
 #####
 # Calculating percentiles
 #####
 
-# Function without using numpy
+# Function to calculate manually
 
-def calculate_percentile(ls, value):
-    sorted_list = easy_sort(ls)
+def percentile1(ls, value):
+    sorted_list = sort2(ls)
     index = ((value / 100) * (len(ls) - 1))
     if (index % 1) == 0:
         percentile = sorted_list[int(index)]
@@ -213,11 +213,11 @@ def calculate_percentile(ls, value):
         percentile = (float_rank * (sorted_list[int_rank2] - sorted_list[int_rank1])) + sorted_list[int_rank1]
         return percentile
 
-print(calculate_percentile(my_list, 25))
+print(percentile1(my_list, 25))
 
 # Function with numpy
 
-def easy_percentile(ls, value):
+def percentile2(ls, value):
     return np.percentile(ls, value)
 
-print(easy_percentile(my_list, 25))
+print(percentile2(my_list, 25))

@@ -15,8 +15,11 @@ import random
 # Define random list
 #####
 
-random_list = [random.randint(1, 20) for num in range(random.randint(2, 20))]
-my_list = random_list
+def generate_random_list():
+    random_list = [random.randint(1, 20) for num in range(random.randint(2, 10))]
+    return random_list
+
+my_list = generate_random_list()
 
 print(my_list)
 
@@ -25,6 +28,8 @@ print(my_list)
 #####
 
 # Function with simple loop
+
+test = [1, 2, 3]
 
 def add_one1(ls):
     new_list = []
@@ -45,6 +50,7 @@ def add_one2(ls):
 print (add_one2(my_list))
 
 # List comprehension
+
 def add_one3(ls):
     new_list = [value + 1 for value in ls]
     return new_list
@@ -54,8 +60,8 @@ print(add_one3(my_list))
 # Array
 
 def add_one4(ls):
-    new_array = np.array(ls) + 1
-    return new_array
+    new_list = list(np.asarray(ls) + 1)
+    return new_list
 
 print(add_one4(my_list))
 
@@ -66,10 +72,11 @@ print(add_one4(my_list))
 # Function with Boolean expression
 
 def calculate_median(ls):
+    sorted_list = sorted(ls)
     if (len(ls) % 2) == 0:
-        return (ls[(len(ls) // 2) - 1] + ls[len(ls) // 2]) / 2
+        return (sorted_list[(len(ls) // 2) - 1] + sorted_list[len(ls) // 2]) / 2
     else:
-        return ls[(len(ls) - 1) // 2]
+        return sorted_list[(len(ls) - 1) // 2]
 
 print(calculate_median(my_list))
 
@@ -164,16 +171,17 @@ print(easy_maximum(my_list))
 # Function to sort manually
 
 def sort_list(ls):
+    temp_list = [value for value in ls]
     sorted_list = []
-    smallest_num = ls[0]
-    while len(ls) > 0:
-        for i in range(len(ls)):
-            if ls[i] <= smallest_num:
-                smallest_num = ls[i]
+    smallest_num = temp_list[0]
+    while len(temp_list) > 0:
+        for i in range(len(temp_list)):
+            if temp_list[i] <= smallest_num:
+                smallest_num = temp_list[i]
         sorted_list.append(smallest_num)
-        ls.remove(smallest_num)
-        if len(ls) > 1:
-            smallest_num = ls[0]
+        temp_list.remove(smallest_num)
+        if len(temp_list) > 0:
+            smallest_num = temp_list[0]
     return sorted_list
 
 print(sort_list(my_list))

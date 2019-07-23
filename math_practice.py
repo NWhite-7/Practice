@@ -1,56 +1,69 @@
-# Perform the same simple math in a variety of ways.
+#####
+# Introduction
+#####
 
+# This program performs the same simple math in a variety of ways
 
+#####
 # Imports
+#####
+
 import numpy as np
+import random
+
+#####
+# Define random list
+#####
+
+random_list = [random.randint(1, 20) for num in range(random.randint(2, 20))]
+my_list = random_list
+
+print(my_list)
 
 #####
 # Performing math on each value in list
 #####
 
-my_list = [1, 2, 3, 4, 5]
+# Function with simple loop
 
-# List with loop
+def add_one1(ls):
+    new_list = []
+    for value in ls:
+        new_list.append(value + 1)
+    return new_list
 
-new_list1 = []
+print(add_one1(my_list))
 
-for value in my_list:
-    new_list1.append(value + 1)
+# Function with more complicated loop
 
-print(new_list1)
-
-# List with function
-
-def add_one(ls):
+def add_one2(ls):
     new_list = []
     for i in range(len(ls)):
         new_list.append(ls[i] + 1)
     return new_list
 
-print (add_one(my_list))
+print (add_one2(my_list))
 
 # List comprehension
+def add_one3(ls):
+    new_list = [value + 1 for value in ls]
+    return new_list
 
-new_list2 = [value + 1 for value in my_list]
-
-print(new_list2)
+print(add_one3(my_list))
 
 # Array
 
-my_array = np.array(my_list)
+def add_one4(ls):
+    new_array = np.array(ls) + 1
+    return new_array
 
-new_array = my_array + 1
-
-print(new_array)
+print(add_one4(my_list))
 
 #####
 # Calculating median
 #####
 
-my_data1 = [10, 12, 15, 19, 40]
-my_data2 = [20, 13, 17, 20, 11, 20]
-
-# Funtion with Boolean expression
+# Function with Boolean expression
 
 def calculate_median(ls):
     if (len(ls) % 2) == 0:
@@ -58,16 +71,14 @@ def calculate_median(ls):
     else:
         return ls[(len(ls) - 1) // 2]
 
-print(calculate_median(my_data1))
-print(calculate_median(my_data2))
+print(calculate_median(my_list))
 
 # Function with np.median
 
 def easy_median(ls):
     return np.median(ls)
 
-print(easy_median(my_data1))
-print(easy_median(my_data2))
+print(easy_median(my_list))
 
 #####
 # Calculating mean
@@ -82,8 +93,7 @@ def calculate_mean(ls):
     mean = sum / len(ls)
     return mean
 
-print(calculate_mean(my_data1))
-print(calculate_mean(my_data2))
+print(calculate_mean(my_list))
 
 # Function with different loop
 
@@ -94,16 +104,14 @@ def calculate_mean_2(ls):
     mean = sum / len(ls)
     return mean
 
-print(calculate_mean_2(my_data1))
-print(calculate_mean_2(my_data2))
+print(calculate_mean_2(my_list))
 
 # Function with np.mean
 
 def easy_mean(ls):
     return np.mean(ls)
 
-print(easy_mean(my_data1))
-print(easy_mean(my_data2))
+print(easy_mean(my_list))
 
 #####
 # Calculating minimum value
@@ -118,16 +126,14 @@ def minimum_value(ls):
             min = ls[i]
     return min
 
-print(minimum_value(my_data1))
-print(minimum_value(my_data2))
+print(minimum_value(my_list))
 
 # Function with min
 
 def easy_minimum(ls):
     return min(ls)
 
-print(easy_minimum(my_data1))
-print(easy_minimum(my_data2))
+print(easy_minimum(my_list))
 
 #####
 # Calculating maximum value
@@ -142,23 +148,18 @@ def maximum_value(ls):
             max = ls[i]
     return max
 
-print(maximum_value(my_data1))
-print(maximum_value(my_data2))
+print(maximum_value(my_list))
 
 # Function with max
 
 def easy_maximum(ls):
     return max(ls)
 
-print(easy_maximum(my_data1))
-print(easy_maximum(my_data2))
+print(easy_maximum(my_list))
 
 #####
 # Sorting a list
 #####
-
-unsorted_list1 = [6, 3, 18, 14, 18]
-unsorted_list2 = [13, 2, 5, 2, 10, 9]
 
 # Function to sort manually
 
@@ -171,25 +172,22 @@ def sort_list(ls):
                 smallest_num = ls[i]
         sorted_list.append(smallest_num)
         ls.remove(smallest_num)
-        if len(ls)>1:
+        if len(ls) > 1:
             smallest_num = ls[0]
     return sorted_list
 
-print(sort_list(unsorted_list1))
+print(sort_list(my_list))
 
 # Function to sort using sort
 
 def easy_sort(ls):
     return sorted(ls)
 
-print(easy_sort(unsorted_list2))
+print(easy_sort(my_list))
 
 #####
 # Calculating percentiles
 #####
-
-my_data3 = [15, 3, 7, 19, 10, 14, 18]
-my_data4 = [15, 3, 7, 19, 10, 14, 18, 12]
 
 # Function without using numpy
 
@@ -207,11 +205,11 @@ def calculate_percentile(ls, value):
         percentile = (float_rank * (sorted_list[int_rank2] - sorted_list[int_rank1])) + sorted_list[int_rank1]
         return percentile
 
-print(calculate_percentile(my_data4, 25))
+print(calculate_percentile(my_list, 25))
 
 # Function with numpy
 
 def easy_percentile(ls, value):
     return np.percentile(ls, value)
 
-print(easy_percentile(my_data4, 25))
+print(easy_percentile(my_list, 25))
